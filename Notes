@@ -1,83 +1,203 @@
 use_bpm 174
 use_synth :piano
+# VARIABLES TO STORE SAMPLES
+good_night = "C:/Users/christopher_ramirez/Downloads/goodnight.wav"
 
-play :a4
-sleep 0.5
-play :b4
-sleep 0.5
-play :c4
-sleep 0.5
-play :b4
+
+
+holding_me = "/Users/christopher_ramirez/Downloads/holding_me.wav"
+
+gravity = "/Users/christopher_ramirez/Downloads/gravity.wav"
+
+your_hand = "/Users/christopher_ramirez/Downloads/your_hand.wav"
+
+leave ="/Users/christopher_ramirez/Downloads/leave_it.wav"
+
+nothing = "C:/Users/christopher_ramirez/Downloads/nothing.wav"
+
+everything = "/Users/christopher_ramirez/Downloads/RPReplay_Final1678063884.wav"
+
+replaced = "/Users/christopher_ramirez/Downloads/RPReplay_Final1678063898.wav"
+
+stay = "/Users/christopher_ramirez/Downloads/RPReplay_Final1678063919.wav"
+
+oh = "C:/Users/christopher_ramirez/Downloads/oh!.wav"
+
+world = "C:/Users/christopher_ramirez/Downloads/world.wav"
+
+asitwas1 ="C:/Users/christopher_ramirez/Downloads/asitwas1.wav"
+
+
+x=2
+
+define :intro do
+  play :a4
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :c4
+  sleep 0.5
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :a4
+  sleep 0.5
+  play :e5
+  sleep 1
+  play :c5
+  sleep 0.5
+  live_loop :beat do
+    sample :drum_cymbal_closed, amp: 0.5
+    sleep 1
+    sample :drum_cymbal_pedal, amp: 0.5
+    sleep 1
+  end
+  play :a4
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :c4
+  sleep 0.5
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :a4
+  sleep 0.5
+  play :b4
+  sleep 1
+  play :a4
+  sleep 1
+  play :a4
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :c4
+  sleep 0.5
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :a4
+  sleep 0.5
+  play :e5
+  sleep 1
+  play :c5
+  sleep 1
+  play :a4
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :c4
+  sleep 0.5
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :b4
+  sleep 1
+  play :a4
+  sleep 0.5
+  play :b4
+  sleep 1
+  play :a4
+  sleep 1
+end
+
+live_loop :vinyl do
+  sample :vinyl_hiss, amp: 0.5
+  sleep 15
+end
+
+sleep 5
+
+sample good_night
+sleep 8
+
+live_loop :melody do
+  intro
+end
+
+live_loop :drums do
+  sleep 16
+  sample :drum_heavy_kick, amp: 0.5
+  sleep 1
+  sample :drum_bass_hard, amp: 0.5
+  sleep 22
+end
+
+sleep 22
+sample holding_me, amp: x
 sleep 1
-play :b4
+
+live_loop :bottom do
+  3.times do
+    use_synth :beep
+    play :c4, amp: 0.5
+    sleep 0.5
+    play :b4, amp: 0.5
+    sleep 1
+    play :c4, amp: 0.5
+    sleep 0.5
+    play :b4, amp: 0.5
+    sleep 2
+    sample :drum_cymbal_closed, amp: 0.5
+    sleep 1
+  end
+end
+sleep 12
+sample gravity, amp: x
+sleep 11
+sample your_hand, amp: x
+sleep 12
+sample leave, amp: x
 sleep 1
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :a4
-sleep 0.5
-play :e5
-sleep 1
-play :c5
-sleep 1
-play :a4
-sleep 0.5
-play :b4
-sleep 0.5
-play :c4
-sleep 0.5
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :a4
-sleep 0.5
-play :b4
-sleep 1
-play :a4
-sleep 1
-play :a4
-sleep 0.5
-play :b4
-sleep 0.5
-play :c4
-sleep 0.5
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :a4
-sleep 0.5
-play :e5
-sleep 1
-play :c5
-sleep 1
-play :a4
-sleep 0.5
-play :b4
-sleep 0.5
-play :c4
-sleep 0.5
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :b4
-sleep 1
-play :a4
-sleep 0.5
-play :b4
-sleep 1
-play :a4
-sleep 1
+live_loop :stay do
+  3.times do
+    sample :guit_em9, amp: 0.5
+    sleep 16
+    sample :guit_e_slide, sustain: 2, amp: 0.5
+    sleep 10
+  end
+  stop
+end
+live_loop :bottom2 do
+  
+  use_synth :kalimba
+  play :b4, amp: 1
+  sleep 0.5
+  play :a4, amp: 1
+  sleep 1
+end
+
+sleep 10
+sample nothing, amp: x
+sleep 8
+sample everything, amp: x
+sleep 10
+sample replaced, amp: x
+sleep 10
+sample stay, amp: x
+sleep 6
+sample oh, amp: x
+sleep 20
+sample world, amp: x
+sleep 16
+sample asitwas1, amp: x
+sleep 20
+sample world, amp: x
