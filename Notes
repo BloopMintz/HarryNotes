@@ -1,34 +1,43 @@
+# Test
+
 use_bpm 174
 use_synth :piano
 # VARIABLES TO STORE SAMPLES
-good_night = "C:/Users/christopher_ramirez/Downloads/goodnight.wav"
+good_night = "/Users/christopherramirez/Downloads/goodnight.wav"
 
+holding_me = "/Users/christopherramirez/Downloads/holding_me.wav"
 
+gravity = "/Users/christopherramirez/Downloads/gravity.wav"
 
-holding_me = "/Users/christopher_ramirez/Downloads/holding_me.wav"
+your_hand = "/Users/christopherramirez/Downloads/your_hand.wav"
 
-gravity = "/Users/christopher_ramirez/Downloads/gravity.wav"
+leave ="/Users/christopherramirez/Downloads/leave_it.wav"
 
-your_hand = "/Users/christopher_ramirez/Downloads/your_hand.wav"
+nothing = "/Users/christopherramirez/Downloads/nothing.wav"
 
-leave ="/Users/christopher_ramirez/Downloads/leave_it.wav"
+everything = "/Users/christopherramirez/Downloads/RPReplay_Final1678063884.wav"
 
-nothing = "C:/Users/christopher_ramirez/Downloads/nothing.wav"
+replaced = "/Users/christopherramirez/Downloads/RPReplay_Final1678063898.wav"
 
-everything = "/Users/christopher_ramirez/Downloads/RPReplay_Final1678063884.wav"
+stay = "/Users/christopherramirez/Downloads/RPReplay_Final1678063919.wav"
 
-replaced = "/Users/christopher_ramirez/Downloads/RPReplay_Final1678063898.wav"
+oh = "/Users/christopherramirez/Downloads/oh!.wav"
 
-stay = "/Users/christopher_ramirez/Downloads/RPReplay_Final1678063919.wav"
+world = "/Users/christopherramirez/Downloads/world.wav"
 
-oh = "C:/Users/christopher_ramirez/Downloads/oh!.wav"
+asitwas1 = "/Users/christopherramirez/Downloads/asitwas1.wav"
 
-world = "C:/Users/christopher_ramirez/Downloads/world.wav"
+asitwas2 = "/Users/christopherramirez/Downloads/asitwas2.wav"
 
-asitwas1 ="C:/Users/christopher_ramirez/Downloads/asitwas1.wav"
+notsame = "/Users/christopherramirez/Downloads/notsame.wav"
+
 
 
 x=2
+y=0
+
+backgroundNotes = [:c4, :b4, :c4, :b4]
+backgroundSleep = [0.5, 1, 0.5, 2, 1]
 
 define :intro do
   play :a4
@@ -119,6 +128,10 @@ define :intro do
   sleep 1
 end
 
+
+
+
+
 live_loop :vinyl do
   sample :vinyl_hiss, amp: 0.5
   sleep 15
@@ -134,11 +147,13 @@ live_loop :melody do
 end
 
 live_loop :drums do
-  sleep 16
-  sample :drum_heavy_kick, amp: 0.5
-  sleep 1
-  sample :drum_bass_hard, amp: 0.5
-  sleep 22
+  5.times do
+    sleep 16
+    sample :drum_heavy_kick, amp: 0.5
+    sleep 1
+    sample :drum_bass_hard, amp: 0.5
+    sleep 22
+  end
 end
 
 sleep 22
@@ -146,23 +161,17 @@ sample holding_me, amp: x
 sleep 1
 
 live_loop :bottom do
-  3.times do
+  4.times do
     use_synth :beep
-    play :c4, amp: 0.5
-    sleep 0.5
-    play :b4, amp: 0.5
-    sleep 1
-    play :c4, amp: 0.5
-    sleep 0.5
-    play :b4, amp: 0.5
-    sleep 2
-    sample :drum_cymbal_closed, amp: 0.5
-    sleep 1
+    play backgroundNotes[y]
+    sleep backgroundSleep[y]
+    y=y+1
   end
+  y=0
 end
-sleep 12
+sleep 10
 sample gravity, amp: x
-sleep 11
+sleep 14
 sample your_hand, amp: x
 sleep 12
 sample leave, amp: x
@@ -193,7 +202,7 @@ sleep 10
 sample replaced, amp: x
 sleep 10
 sample stay, amp: x
-sleep 6
+sleep 5
 sample oh, amp: x
 sleep 20
 sample world, amp: x
@@ -201,3 +210,8 @@ sleep 16
 sample asitwas1, amp: x
 sleep 20
 sample world, amp: x
+sleep 18
+sample asitwas2, amp: x
+sleep 34
+sample notsame, amp: x
+sleep 10
