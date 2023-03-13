@@ -40,25 +40,25 @@ backgroundNotes = [:c4, :b4, :c4, :b4]
 backgroundSleep = [0.5, 1, 0.5, 2, 1]
 
 define :intro do
-  play :a4
+  play :a4, amp: 0.25
   sleep 0.5
-  play :b4
+  play :b4, amp: 0.25
   sleep 0.5
-  play :c4
+  play :c4, amp: 0.25
   sleep 0.5
-  play :b4
+  play :b4, amp: 0.25
   sleep 1
-  play :b4
+  play :b4, amp: 0.5
   sleep 1
-  play :b4
+  play :b4, amp: 0.5
   sleep 1
-  play :b4
+  play :b4, amp: 0.5
   sleep 1
-  play :a4
+  play :a4, amp: 0.75
   sleep 0.5
-  play :e5
+  play :e5, amp: 0.75
   sleep 1
-  play :c5
+  play :c5, amp: 2
   sleep 0.5
   live_loop :beat do
     sample :drum_cymbal_closed, amp: 0.5
